@@ -1,0 +1,28 @@
+{##
+ # SocietoPluginBundle
+ # Copyright (C) 2011 Kousuke Ebihara
+ #
+ # This program is under the EPL/GPL/LGPL triple license.
+ # Please see the Resources/meta/LICENSE file that was distributed with this file.
+ #}
+<article class="gadget" id="gadget_{{gadget.id}}" data-gadget-name="{{ gadget.name }}">
+{% if gadget.caption %}
+<header>
+<h3>{% block caption %}{% endblock %}</h3>
+</header>
+{% endif %}
+<div class="content">
+{% if gadget.parameters.header | default(none) %}
+<header>
+{{ gadget.parameters.header | raw }}
+</header>
+{% endif %}
+{% block content %}{% endblock %}
+{% if gadget.parameters.footer | default(none) %}
+<footer>
+{{ gadget.parameters.footer | raw }}
+</footer>
+{% endif %}
+</div>
+</article>
+{% block javascripts %}{% endblock %}

@@ -1,0 +1,667 @@
+/**
+ * SocietoPluginBundle
+ * Copyright (C) 2011 Kousuke Ebihara
+ *
+ * This program is under the EPL/GPL/LGPL triple license.
+ * Please see the Resources/meta/LICENSE file that was distributed with this file.
+ */
+
+/* <default.css> */
+
+/* <comon><![CDATA[ */
+body {
+    width: 100%;
+    overflow-x: hidden;
+    line-height: 120%;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: #8B0000;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+}
+
+table {
+    border-color: #E9E2E5;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: show;
+}
+
+table tr th, table tr td {
+    padding: 10px;
+    border-color: #E9E2E5;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    vertical-align:middle;
+}
+
+table tr th, table tr td:first-child {
+    font-weight: bold;
+    width: 30%;
+    background-color: #F9F2F5;
+}
+/* ]]></common> */
+
+/* <form><![CDATA[ */
+textarea {
+    width: 100%;
+    font-size: 12px;
+}
+
+form strong.required {
+    color: red;
+}
+
+form table tr td ul.help {
+    color: #888;
+    margin-left: 1em;
+    list-style: none;
+}
+
+input[type="submit"], button {
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    background-color: #F9F2F5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F3F3F3));
+    background: -moz-linear-gradient(50% 0%, #FFFFFF, #F3F3F3) repeat scroll 0 0 transparent;
+    border: #E9E2E5 1px solid;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:active, button:active {
+    border: #D8D1D4 1px solid;
+    background-color: #F9F2F5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#E0E0E0), to(#F3F3F3));
+    background: -moz-linear-gradient(50% 0%, #E0E0E0, #F3F3F3) repeat scroll 0 0 transparent;
+}
+/* ]]></form> */
+
+/* <util><![CDATA[ */
+p.more {
+    text-align: right;
+}
+
+p.more a:before {
+    content: "≫";
+}
+
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-style: solid;
+    border-width: 2px;
+
+    display: none; /* TODO: move this property to JavaScript */
+}
+
+.flash.notice {
+    border-color: #ff3300;
+    background-color: #ffeecc;
+}
+
+.flash.success {
+    border-color: #33aa33;
+    background-color: #ccff99;
+}
+
+.flash.error {
+    border-color: #ff3333;
+    background-color: #ff9977;
+}
+
+.pagerfanta {
+    margin: 1em;
+    text-align: right;
+}
+
+.pagerfanta a,
+.pagerfanta span {
+    border-color: red;
+    color: red;
+}
+
+.pagerfanta a:hover {
+    background: #fcc;
+}
+
+.pagerfanta .current {
+    background: #fcc;
+}
+
+.pagerfanta .disabled {
+    border-color: #fcc;
+    color: #fcc;
+}
+
+.icon {
+    padding: 1px;
+    border: 1px solid #E9E2E5;
+    overflow: hidden;
+}
+/* ]]></util> */
+
+/* <base><![CDATA[ */
+#site_header {
+    width: 100%;
+    color: white;
+
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 423;
+    background: url("../images/societo-head-bg.png") repeat-x;
+}
+
+#site_header h1 {
+    float: left;
+    background-image: url("../images/logo-small.png");
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 115px;
+
+    margin-left: 150px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+#site_header h1 a {
+    text-indent: -999em;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#site_menu {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#site_menu ul {
+    display: inline;
+}
+
+#site_menu li {
+    list-style: none;
+    display: inline;
+    color: white:
+    font-weight: bold;
+    padding: 0 5px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#site_header a:link, #site_header a:visited, #site_header a:hover, #site_header a:active,
+#site_footer a:link, #site_footer a:visited, #site_footer a:hover, #site_footer a:active {
+    color: #ffffff;
+}
+
+#site_menu a:hover, #site_menu a:active {
+    text-decoration: underline;
+}
+
+#site_footer {
+    padding-top: 25px;
+    color: #ffffff;
+    background: url("../images/societo-foot-bg.png") repeat-x;
+    height: 65px;
+}
+
+#site_footer p, #site_footer nav {
+    font-size: 12px;
+    text-align: center;
+}
+
+#site_footer nav ul {
+    display: inline;
+}
+
+#site_footer nav li {
+    list-style: none;
+    display: inline;
+}
+
+#site_footer nav li:before {
+    content: "|";
+    margin-right: 5px;
+}
+
+#site_footer nav li:first-child:before {
+    content: "";
+}
+
+#site_content {
+    padding-bottom: 40px;
+    margin: 60px auto;
+
+    width: 980px;
+    min-height: 300px;
+
+    overflow: hidden;
+    font-size: 12px;
+}
+
+#site_content header h2 {
+    display: none;
+}
+
+
+
+/* ]]></base-layout> */
+
+/* <page><![CDATA[ */
+#page {
+    width: 780px;
+    float: left;
+}
+
+#page_header, #page_footer {
+    width: 980px;
+}
+
+#page_content_group {
+    overflow: hidden;
+}
+
+#page_content_group #page_sub_content {
+    float: left;
+    width: 270px;
+}
+
+#page_content_group #page_main_content {
+    float: left;
+    width: 510px;
+}
+
+#page_sidebar {
+    margin-top: 5px;
+    width: 200px;
+    float: right;
+}
+/* ]]></page-layout> */
+
+/* <gadget-base><![CDATA[ */
+#page_header .gadget, #page_header .gadget {
+    width: 760px;
+    margin: 10px;
+}
+
+#page_content_group #page_sub_content .gadget {
+    width: 250px;
+    margin: 10px;
+}
+
+#page_content_group #page_main_content .gadget {
+    width: 490px;
+    margin: 10px;
+}
+
+.gadget .content {
+    padding: 5px;
+    padding: 0 26px;
+}
+
+.gadget > header {
+    padding: 0 0 6px 6px;
+    margin-bottom: 15px;
+}
+
+.gadget > header h3 {
+    padding-top: 0px;
+    font-size: 14px;
+    padding: 0 0 2px 5px;
+    font-weight: bold;
+    color: #CD8080;
+    border-bottom: 3px double #CD8080;
+}
+
+.gadget .content > header,
+.gadget .content > footer {
+    background-color: #F9F2F5;
+    border: 1px solid #E9E2E5;
+    padding: 10px;
+    margin: 10px 0;
+}
+/* ]]></gadget-base-layout> */
+
+/* <gadget-common><![CDATA[ */
+.gadget .icon_list
+{
+    overflow: hidden;
+}
+
+.gadget .icon_list ul
+{
+    float: left;
+    display: block;
+    list-style: none;
+    margin: 2px;
+    padding: 0;
+    width: 50px;
+}
+
+.gadget .icon_list ul li
+{
+    width: 50px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.gadget .icon_list ul li.name
+{
+    height: 20px;
+}
+
+.search-result {
+    overflow: hidden;
+}
+
+.search-result ul li {
+    list-style: none;
+    padding-left: 10px;
+    display: block;
+    margin-left: 50px;
+}
+
+.search-result ul li.image {
+    width: 50px;
+    height: 50px;
+    float: left;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.search-result ul {
+    min-height: 50px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #fee;
+}
+
+/* ]]></gadget-common-layout> */
+
+/* <gadget-specific><![CDATA[ */
+form.status_post .counter {
+  color:#666666;
+  font-size:16px;
+  font-weight:bold;
+  text-align: right;
+}
+
+form.status_post textarea {
+  width: 100%;
+  display: block;
+  margin-bottom: 5px;
+}
+
+form.status_post {
+    text-align: right;
+}
+
+.gadget[data-gadget-name="SocietoBaseBundle:MemberImage"] ul li,
+.gadget[data-gadget-name="SocietoGroupBundle:AssociationalGroupImage"] ul li {
+    list-style: none;
+    text-align: center;
+}
+
+.activity-entry {
+    display: block;
+    position: relative;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .content .author,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .content .author,
+.activity-entry .image
+{
+    display: block;
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin: 0 8px 0 65px;
+}
+
+.activity-entry .image img {
+    width: 25px;
+    height: 25px;
+}
+
+.activity-entry .name {
+    display: none;
+}
+
+.activity-entry .post_date {
+    display: none;
+}
+
+.activity-entry .bubble
+{
+    display: block;
+    padding: 4px;
+    overflow: hidden;
+    margin: 8px 8px 8px 0;
+    min-height: 25px;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .content .author,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .content .author,
+.activity-entry.post.status_post .image {
+    width: 50px;
+    height: 50px;
+    margin: 0 8px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .content .author img,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .content .author img,
+.activity-entry.post.status_post .image img {
+    width: 50px;
+    height: 50px;
+}
+
+.gadget[data-gadget-name=".SocietoForumPlugin:Forum"] .content .post_date,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .content .post_date {
+    display: block;
+    color: #aaa;
+    text-align: right;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .name a,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .name a,
+.activity-entry.post.status_post .name, .activity-entry.post.status_post .name a {
+    display: block;
+    font-weight: bold;
+    color: #cd8080;
+    text-decoration: none;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .body,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .body,
+.activity-entry.post.status_post .bubble {
+    margin: 8px 8px 8px 0px;
+    min-height: 50px;
+    border: 1px solid #cd8080;
+    background-color: #f0f0f0;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .body {
+    margin-left: 70px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .body {
+    min-height: 50px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-left: 70px;
+}
+
+.activity-entry.post.status_post .post_date {
+    display: block;
+    color: #aaa;
+    text-align: right;
+}
+
+.activity-entry.post.status_post .title {
+    display: none;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dl {
+    overflow: hidden;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dt.image {
+    float: left;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dd {
+    min-height: 50px;
+    margin-bottom: 10px;
+    padding: 0 0 5px 20px;
+    border-bottom: 1px solid #fee;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] ul {
+    list-style: none;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.creator,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.commentCount,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.updatedAt {
+    float: left;
+    margin-right: 1em;
+    font-size: 11px;
+}
+
+.search-result li.name,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.title {
+    font-weight: bold;
+    font-size: 14px;
+}
+/* ]]></gadget-specific-layout> */
+
+/* <page-specific-layout><![CDATA[ */
+body[data-auth-status="insecure"] #site_header #site_menu {
+    display: none;
+}
+
+body#_security_login {
+    background-color: #802929;
+}
+
+body#_security_login #site_content {
+    margin-top: 50px;
+}
+
+body#_security_login #site_header,
+body#_security_login #site_footer {
+    background-image: none;
+}
+
+body#_security_login .gadget > header h3 {
+    border: none;
+    color: white;
+    font-size: 26px;
+    text-align: center;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] {
+    width: 980px;
+    margin: 0;
+    font-size: 20px;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] > .content {
+    background-color: #F9F2F5;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    margin: 0 200px;
+    padding: 20px 100px;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] dt {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul {
+    margin-top: 1em;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.remember_me {
+    font-size: 12px;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.login,
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.signup {
+  text-align: center;
+  margin: 5px;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.login button,
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.signup a {
+  font-family: sans-serif;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: white;
+  font-size: 16px;
+  padding: 7px 20px;
+  font-weight: bold;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.login button {
+    background-color: #008800;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00DD00), to(#008800));
+    background: -moz-linear-gradient(50% 0%, #00DD00, #008800) repeat scroll 0 0 transparent;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.login button:active {
+    background-color: #005500;
+    background: -webkit-gradient(linear, left top, left bottom, from(#009900), to(#005500));
+    background: -moz-linear-gradient(50% 0%, #009900, #005500) repeat scroll 0 0 transparent;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.signup a {
+    background-color: #770000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#DD0000), to(#880000));
+    background: -moz-linear-gradient(50% 0%, #DD0000, #880000) repeat scroll 0 0 transparent;
+    display: inline-block;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] ul li.signup a:active {
+    background-color: #550000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#990000), to(#550000));
+    background: -moz-linear-gradient(50% 0%, #990000, #550000) repeat scroll 0 0 transparent;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] .username_field input,
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] .password_field input {
+    font-size: 20px;
+    width: 100%;
+}
+
+body#_security_login .gadget[data-gadget-name="SocietoUsernameAuthPlugin:LoginFormGadget"] footer {
+    font-size: 14px;
+}
+/* ]]></page-specific-layout> */
+
+/* </default.css> */
+
+/* vim:set foldmethod=marker foldmarker=<![CDATA[,]]> : */

@@ -1,0 +1,14 @@
+{##
+ # SocietoPluginBundle
+ # Copyright (C) 2011 Kousuke Ebihara
+ #
+ # This program is under the EPL/GPL/LGPL triple license.
+ # Please see the Resources/meta/LICENSE file that was distributed with this file.
+ #}
+{% extends skin_template_path('base.html.twig') %}
+
+{% block body %}
+    <div id="PageHeader">
+    {{ render_gadget(gadget, parent_attributes, parameters) | raw }}
+    </div>
+{% endblock %}

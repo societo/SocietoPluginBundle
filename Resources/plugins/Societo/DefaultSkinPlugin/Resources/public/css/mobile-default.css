@@ -1,0 +1,378 @@
+/**
+ * SocietoPluginBundle
+ * Copyright (C) 2011 Kousuke Ebihara
+ *
+ * This program is under the EPL/GPL/LGPL triple license.
+ * Please see the Resources/meta/LICENSE file that was distributed with this file.
+ */
+
+/* <mobile-default.css> */
+
+body {
+    background-color: #802929;
+    font-size: 100%;
+    font-family: sans-serif;
+}
+
+dt {
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 1em;
+}
+
+textarea, input {
+    width: 100%;
+}
+
+input:not([type="submit"]), textarea {
+    border: 1px solid #CD8080;
+    padding: 0.2em;
+    font-size: 1.1em;
+}
+
+button,
+input[type="submit"],
+body#_security_login .signup a {
+    border: 1px solid #CD8080;
+    background-color: #f2f7fa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 0.1em;
+    margin: 0.2em 0.1em;
+    color: black;
+    cursor: pointer;
+    font-weight: normal;
+    line-height: 2em;
+    font-size: 1em;
+}
+
+#site_header h1 {
+    background-image: url("../images/logo-small.png");
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 115px;
+    margin: 5px auto;
+    text-indent: -9999em;
+}
+
+#site_header #site_menu {
+    background-color: #A04949;
+    font-weight: bold;
+    border-top: 2px solid #903939;
+    border-bottom: 2px solid #903939;
+}
+
+#site_header #site_menu li {
+    text-align: center;
+    background-color: #A44D4D;
+    background: -webkit-gradient(linear, left top, left bottom, from(#A44D4D), to(#A04949));
+    background: -moz-linear-gradient(50% 0%, #A44D4D, #A04949) repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #903939;
+}
+
+#site_header #site_menu li a {
+    text-align: center;
+}
+
+#site_header #site_menu ul.toggle {
+    z-index: 423;
+    position: absolute;
+    width: 100%;
+}
+
+#site_header #site_menu li.togglebutton {
+    background-image: none;
+    background-color: #B05959;
+}
+
+#site_header #site_menu a:link,
+#site_header #site_menu a:visited,
+#site_header #site_menu a:hover,
+#site_header #site_menu a:active {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+#site_header #site_menu a:hover {
+    background-color: #B05959;
+}
+
+#site_content {
+    font-size: 0.8em;
+    line-height: 1.1em;
+}
+
+#site_content h2 {
+    display: none;
+}
+
+#site_content .gadget {
+    background-color: #F9F2F5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#site_content .gadget h3 {
+    color: #CD8080;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    background-color: #D9D2D5;
+    border-bottom: 4px double #CD8080;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+#site_content .gadget .content {
+    padding: 0.7em;
+}
+
+.gadget .content > header,
+.gadget .content > footer
+{
+    background-color: #FDFDFD;
+    border: 1px solid #E9E2E5;
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
+
+#site_footer a:link,
+#site_footer a:visited,
+#site_footer a:hover,
+#site_footer a:active {
+    color: #ffffff;
+}
+
+#site_footer p {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#site_footer p, #site_footer nav {
+    text-align: center;
+}
+
+#site_footer nav ul {
+    display: inline;
+}
+
+#site_footer nav li {
+    list-style: none;
+    display: inline;
+}
+
+#site_footer nav li:before {
+    content: "|";
+    margin-right: 5px;
+}
+
+#site_footer nav li:first-child:before {
+    content: "";
+}
+
+.activity-entry {
+    display: block;
+    position: relative;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .content .author,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .content .author,
+.activity-entry .image
+{
+    display: block;
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-right: 4px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .content .author img,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .content .author img,
+.activity-entry .image img {
+    width: 25px;
+    height: 25px;
+}
+
+.activity-entry .name {
+    display: none;
+}
+
+.activity-entry .post_date {
+    display: none;
+}
+
+.activity-entry .title
+{
+    font-weight: bold;
+}
+
+.activity-entry .bubble
+{
+    display: block;
+    padding: 4px;
+    overflow: hidden;
+    margin: 8px 8px 8px 0;
+    min-height: 25px;
+    color: #000;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .name a,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .name a,
+.activity-entry.post.status_post .name, .activity-entry.post.status_post .name a {
+    display: block;
+    font-weight: bold;
+    color: #cd8080;
+    text-decoration: none;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .body,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .body,
+.activity-entry.post.status_post .bubble {
+    margin: 8px 8px 8px 0px;
+    min-height: 25px;
+    border: 1px solid #cd8080;
+    background-color: #f0f0f0;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .body,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .body {
+    margin-left: 30px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:Forum"] .post_date,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumCommentList"] .post_date,
+.activity-entry.post.status_post .post_date {
+    display: block;
+    color: #aaa;
+    text-align: right;
+}
+
+.activity-entry.post.status_post .title {
+    display: none;
+}
+
+.search-result li.name,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.title {
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+
+.search-result {
+    overflow: hidden;
+}
+
+.search-result ul {
+    min-height: 35px;
+    margin-bottom: 15px;
+    padding: 5px 0;
+    border-bottom: 1px solid #CD8080;
+}
+
+.search-result ul li {
+    list-style: none;
+    display: block;
+    margin-left: 25px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dt.image,
+.search-result ul li.image {
+    width: 25px;
+    height: 25px;
+    float: left;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dt.image .icon,
+.search-result ul li.image .icon {
+    width: 25px;
+    height: 25px;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dl {
+    overflow: hidden;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] dd {
+    min-height: 25px;
+    margin-bottom: 10px;
+    padding: 0 0 5px 20px;
+    border-bottom: 1px solid #CD8080;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] ul {
+    list-style: none;
+    overflow: hidden;
+}
+
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.creator,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.commentCount,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.updatedAt {
+    float: left;
+    color: #aaa;
+    margin-left: 0.5em;
+}
+
+.search-result li.name,
+.gadget[data-gadget-name="SocietoForumPlugin:ForumList"] li.title {
+    font-weight: bold;
+}
+
+tr {
+    display: block;
+    margin: 0.4em 0;
+}
+
+th, td:first-child {
+    font-weight: bold;
+}
+
+th, td {
+    display: block;
+}
+
+td:not(:first-child) {
+    padding-left: 1em;
+}
+
+.pagerfanta {
+    margin: 1em;
+    text-align: right;
+}
+
+.pagerfanta a,
+.pagerfanta span {
+    border-color: red;
+    color: red;
+}
+
+.pagerfanta a:hover {
+    background: #fcc;
+}
+
+.pagerfanta .current {
+    background: #fcc;
+}
+
+.pagerfanta .disabled {
+    border-color: #fcc;
+    color: #fcc;
+}
+
+/* </mobile-default.css> */

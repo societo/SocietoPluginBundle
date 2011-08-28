@@ -1,0 +1,127 @@
+{##
+ # SocietoPluginBundle
+ # Copyright (C) 2011 Kousuke Ebihara
+ #
+ # This program is under the EPL/GPL/LGPL triple license.
+ # Please see the Resources/meta/LICENSE file that was distributed with this file.
+ #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Societo v{{ constant('Societo\\Version::VERSION') }}" />
+        <meta name="application-name" content="{{ app.config.site_name | default('Societo') }} Admin" />
+
+        <title>{{ app.config.site_name | default("Societo") }}{% block title %} | Admin {{ title | default(none) ? "- " ~ title  : "" }} {% endblock %}</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/whiteoctoberpagerfanta/css/pagerfantaDefault.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/reset.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/societodefaultskinplugin/css/admin.css') }}" />
+        {% block stylesheets %}{% endblock %}
+
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    </head>
+    <body>
+        <header id="site_header">
+            <h1><a href="{{ path('_root') }}">Societo</a></h1>
+        </header>
+
+        <section id="site_content">
+            {% if not hide_menu | default(false) %}
+            <nav id="site_menu">
+                <div class="item">
+                    <h3><a href="{{ path('_backend_member') }}">Member</a></h3>
+                </div>
+
+                <div class="item">
+                    <h3><a href="{{ path('_backend_page') }}">Page</a></h3>
+                    <ul>
+                        <li><a href="{{ path('_backend_page') }}">All Pages</a></li>
+                        <li><a href="{{ path('_backend_page_create') }}">Create New</a></li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <h3><a href="{{ path('_backend_menu') }}">Menu</a></h3>
+                </div>
+
+                <div class="item">
+                    <h3><a href="{{ path('_backend_profile') }}">Profile</a></h3>
+                    <ul>
+                        <li><a href="{{ path('_backend_profile') }}">Available Profiles</a></li>
+                        <li><a href="{{ path('_backend_add_profile') }}">Create New</a></li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <h3><a href="{{ path('_backend_config') }}">Config</a></h3>
+                </div>
+
+                <div class="item">
+                    <h3><a href="{{ path('_backend_plugin') }}">Plugin</a></h3>
+                </div>
+
+                <div class="item">
+                    <h3><a href="{{ path('_backend_recipe') }}">Recipe</a></h3>
+                </div>
+            </nav>
+            {% endif %}
+
+            <section id="page_content">
+                <header>
+                    {% if topic_path | default(none) %}
+                    <nav>
+                    <ul id="topic_path">
+                        <li><a href="{{ path('_backend') }}">Top</a></li>
+                        {% for _key, _path in topic_path %}
+                            {% if _path %}
+                            <li><a href="{{ _path }}">{{ _key }}</a></li>
+                            {% else %}
+                            <li>{{ _key }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    </nav>
+                    {% endif %}
+
+                    {% if title | default(none) %}
+                    <h2>{{ title }}</h2>
+                    {% endif %}
+
+                    {% if app.session.hasFlash('notice') %}
+                    <p class="flash notice">{{ app.session.flash('notice') | raw }}</p>
+                    {% elseif app.session.hasFlash('success') %}
+                    <p class="flash success">{{ app.session.flash('success') | raw }}</p>
+                    {% elseif app.session.hasFlash('error') %}
+                    <p class="flash error">{{ app.session.flash('error') | raw }}</p>
+                    {% endif %}
+                </header>
+
+                <section id="page_main_content">
+                {% block body %}{% endblock %}
+                </section>
+            </section>
+        </section>
+
+        <footer id="site_footer">
+            <p>Powered by Societo &copy; 2011 Kousuke Ebihara</p>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('_root') }}">Back to User Page</a></li>
+                </ul>
+            </nav>
+        </footer>
+
+        <script type="text/javascript">
+        // <![CDATA[
+            $(document).ready(function() {
+                $('.flash').fadeIn('slow');
+            });
+        // ]]>
+        </script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

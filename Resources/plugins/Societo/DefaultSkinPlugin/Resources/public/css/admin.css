@@ -1,0 +1,568 @@
+/**
+ * SocietoPluginBundle
+ * Copyright (C) 2011 Kousuke Ebihara
+ *
+ * This program is under the EPL/GPL/LGPL triple license.
+ * Please see the Resources/meta/LICENSE file that was distributed with this file.
+ */
+
+/* <admin.css> */
+
+/* <comon><![CDATA[ */
+body {
+    width: 100%;
+    overflow-x: hidden;
+    line-height: 120%;
+}
+
+ul {
+    margin-left: 2em;
+}
+
+dl {
+    overflow: hidden;
+    padding: 10px;
+}
+
+dl dt {
+    background-color: #f0f0f0;
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+dl dd {
+    margin-bottom: 5px;
+    padding: 8px 0;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: #00008b;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #8b0000;
+}
+
+table {
+    border-color: #bbb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    margin: 10px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: show;
+    min-width: 50%;
+}
+
+table tr th, table tr td {
+    padding: 10px;
+    border-color: #bbb;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    vertical-align:middle;
+}
+
+table tr th {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+h2 {
+    color: gray;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+h3 {
+    color: gray;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form table tr th,
+form table tr td {
+    padding: 5px;
+}
+
+form table tr th,
+form table tr td:first-child {
+    font-weight: bold;
+    width: 100px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+form table tr td ul,
+form table tr td ul.help {
+    color: #888;
+    margin-left: 2em;
+}
+
+.error ul {
+    color: red;
+    list-style: none;
+    margin-left: 0;
+}
+
+textarea {
+    font-size: 12px;
+}
+
+form .required {
+    color: red;
+}
+/* ]]></common> */
+
+/* <base><![CDATA[ */
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-style: solid;
+    border-width: 2px;
+
+    display: none;
+}
+
+.flash.notice {
+    border-color: #ff3300;
+    background-color: #ffeecc;
+}
+
+.flash.success {
+    border-color: #33aa33;
+    background-color: #ccff99;
+}
+
+.flash.error {
+    border-color: #ff3333;
+    background-color: #ff9977;
+}
+
+#site_header {
+    width: 100%;
+    color: white;
+    height: 40px;
+    background: url("../images/societo-head-bg-admin.png") repeat-x;
+}
+
+#site_header h1 {
+    float: left;
+    background-image: url("../images/logo-small.png");
+    background-repeat: no-repeat;
+    height: 35px;
+    width: 115px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+#site_header h1 a {
+    text-indent: -999em;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#site_footer {
+    padding-top: 25px;
+    margin: 0;
+    width: 100%;
+    background: url("../images/societo-foot-bg.png") repeat-x;
+    color: white;
+    height: 65px;
+}
+
+#site_footer p, #site_footer nav {
+    font-size: 12px;
+    text-align: center;
+}
+
+#site_footer nav ul {
+    display: inline;
+}
+
+#site_footer nav li {
+    list-style: none;
+    display: inline;
+}
+
+#site_footer nav li:before {
+    content: "|";
+    margin-right: 5px;
+}
+
+#site_footer nav li:first-child:before {
+    content: "";
+}
+
+#site_header a:link, #site_header a:visited, #site_header a:active #site_header a:hover,
+#site_footer a:link, #site_footer a:visited, #site_footer a:active #site_footer a:hover {
+    color: white;
+}
+
+#site_content {
+    overflow: hidden;
+}
+
+#page_content {
+    padding: 10px 20px 40px 140px;
+    font-size: 12px;
+    min-height: 200px;
+}
+
+#page_content header {
+    margin: 0 0 20px 20px;
+}
+
+#page_content #topic_path {
+    margin: 5px 0;
+    font-size: 10px;
+}
+
+#page_content #topic_path li {
+    list-style: none;
+    display: inline;
+}
+
+#page_content #topic_path li:before {
+    content: " ≫ ";
+}
+
+#page_content #topic_path li:first-child:before {
+    content: "";
+}
+
+#page_content #page_main_content h3 {
+    margin-top: 20px;
+}
+
+#page_content #page_main_content {
+    margin-left: 15px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+#site_menu {
+    margin-left: 10px;
+    width: 145px;
+    float: left;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+#site_menu div.item {
+    margin: 10px;
+    border: 1px solid #eee;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#site_menu div.item ul {
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+#site_menu div.item h3 {
+    background-color: #f0f0f0;
+    padding: 5px;
+    font-size: 12px;
+    color: black;
+}
+
+#site_menu div.item a {
+    text-decoration: none;
+}
+
+#site_menu div.item h3 a {
+    display: block;
+    width: 100%;
+}
+
+#site_menu div.item a:link,
+#site_menu div.item a:visited {
+    color: black;
+}
+
+#site_menu div.item ul li a {
+    padding: 5px 10px;
+    width: 100%;
+    display: block;
+}
+
+#site_menu div.item ul li a:hover {
+    background-color: #fff0ff;
+}
+
+/* ]]> */
+
+/* <facebox><![CDATA[ */
+#facebox {
+    display: none;
+    font-size: 12px;
+}
+
+#facebox h2 {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+#facebox textarea {
+    font-size: 12px;
+    width: 360px;
+    height: 120px;
+}
+
+#facebox #main_content {
+    padding: 10px;
+}
+/* ]]></facebox> */
+
+/* <plot><![CDATA[ */
+.gadget_list {
+    height: 320px;
+    overflow-y: scroll;
+    margin: 10px;
+    border: 2px solid #aaa;
+}
+
+.gadget_list dl {
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+    margin: 5px;
+    background: #eee;
+    overflow: hidden;
+}
+
+.gadget_list dl.gadget_item dt {
+    display: block;
+    float: none;
+    width: 100%;
+    background-color: #444;
+    padding: 0;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.gadget_list dl.gadget_item dt a,
+.gadget_list dl.gadget_item dt a:link
+{
+    color: white;
+}
+
+.gadget_list dl.gadget_item dt.image {
+    background: none;
+}
+
+.gadget_list dl.gadget_item dd {
+    text-align: center;
+}
+
+.plot_item {
+    background-color: #444;
+    border: 1px #eee solid;
+    padding: 0;
+    min-height: 20px;
+}
+
+.plot_item p {
+    text-align: center;
+}
+
+.plot_item,
+.plot_item  a,
+.plot_item a:link
+{
+    color: white;
+}
+
+
+#plotArea #head, #plotArea #foot {
+    width: 350px;
+}
+
+#plotArea #foot {
+    float: left;
+}
+
+#plotArea #head .plot_item,
+#plotArea #foot .plot_item
+{
+    margin: 5px 10px;
+    width: 330px;
+}
+
+#plotArea .container {
+    float: left;
+    width: 350px;
+    margin-right: 10px;
+}
+
+#plotArea #sub_content,
+#plotArea #main_content,
+#plotArea #side {
+    width: 155px;
+    margin-top: 0;
+    float: left;
+}
+
+#plotArea #sub_content .plot_item,
+#plotArea #main_content .plot_item,
+#plotArea #side .plot_item {
+    margin: 5px 10px;
+    width: 135px;
+}
+
+.plotable {
+    min-height: 30px;
+    background-color: #999;
+    margin: 0 10px 25px 10px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.ui-state-highlight {
+    background-color: #ddd;
+    border: 1px #000 dotted;
+}
+
+#plotArea {
+    padding: 10px 0;
+    margin: 10px auto;
+    width: 540px;
+    min-height: 320px;
+    height: auto;
+    background-color: #aaa;
+    overflow: hidden;
+}
+
+#plot {
+    overflow: hidden;
+}
+
+#plot_page_gadget {
+    width: 540px;
+    float: left;
+    margin-right: 10px;
+}
+
+#add_page_gadgets {
+    min-width: 260px;
+}
+
+.prefixed_url {
+    color: #888;
+}
+/* ]]></plot> */
+
+/* <page-specific><![CDATA[ */
+#config_menu { overflow: hidden; }
+#config_menu ul { list-style:none; }
+#config_menu ul li {
+    border: 1px #aaa solid;
+    background-color: #f0f0f0;
+    display:inline;
+    float:left;
+    margin-right: 1px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: bold;
+}
+#config_menu ul li.current {
+    background-color: #f0f0f0;
+}
+#config_menu ul li a {
+    text-decoration: none;
+    padding: 2px 10px;
+    display: block;
+}
+#config_menu a:link,
+#config_menu a:visited {
+    color: #666;
+}
+
+#config_content {
+    padding: 20px;
+    border-top: 1px #aaa solid;
+}
+
+div.recipe {
+    margin: 10px;
+    padding: 10px;
+    border: 1px #ccc solid;
+    width: 50%;
+}
+
+div.recipe h3 {
+    text-align: center;
+    border-bottom: 1px #ccc solid;
+    padding-bottom: 10px;
+}
+
+div.recipe dl dt {
+    display: block;
+    float: none;
+    width: 100%;
+}
+
+.gadget_info {
+    border: 1px #ccc solid;
+    background-color: #EEEEEE;
+    padding: 5px;
+}
+
+.gadget_info .title {
+    background-color: black;
+    color: #ffffff;
+    padding: 2px;
+    text-align: center;
+}
+
+.gadget_info .description {
+    padding: 5px;
+}
+/* ]]></page-specific> */
+
+/* <pagerfanta><![CDATA[ */
+.pagerfanta {
+    margin: 1em;
+    text-align: right;
+}
+
+.pagerfanta a,
+.pagerfanta span {
+    border-color: gray;
+    color: gray;
+}
+
+.pagerfanta a:hover {
+    background: #ccc;
+}
+
+.pagerfanta .current {
+    background: #ccc;
+}
+
+.pagerfanta .disabled {
+    border-color: #ccc;
+    color: #ccc;
+}
+/* ]]></pagerfanta> */
+
+/* </admin.css> */
+
+/* vim:set foldmethod=marker foldmarker=<![CDATA[,]]> : */

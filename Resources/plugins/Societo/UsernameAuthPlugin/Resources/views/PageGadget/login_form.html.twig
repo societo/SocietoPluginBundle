@@ -1,0 +1,36 @@
+{##
+ # SocietoPluginBundle
+ # Copyright (C) 2011 Kousuke Ebihara
+ #
+ # This program is under the EPL/GPL/LGPL triple license.
+ # Please see the Resources/meta/LICENSE file that was distributed with this file.
+ #}
+{% extends skin_template_path('normal_gadget.html.twig') %}
+
+{% block caption %}{{ gadget.caption }}{% endblock %}
+
+{% block content %}
+{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
+
+<form action="{{ path('_security_check') }}" method="post">
+    <input type="hidden" name="_societo_auth_mode" value="societo.user.config.provider.username" />
+
+    <dl>
+        <dt class="username_label"><label for="username">Username:</label></dt>
+        <dd class="username_field"><input type="text" id="username" name="_username" value="{{ last_username }}" /></dd>
+
+        <dt class="password_label"><label for="password">Password:</label></dt>
+        <dd class="password_field"><input type="password" id="password" name="_password" /></dd>
+    </dl>
+
+    <ul>
+        <li class="remember_me"><input type="checkbox" id="remember_me" name="_remember_me" /> <label for="remember_me">Keep me logged in</label></li>
+        <li class="login"><button type="submit">Login</button></li>
+        {% if "disable" != app.config.self_registration | default("disable") %}
+        <li class="signup"><a href="{{ path('_registration', {'namespace': 'SocietoUsernameAuthPlugin'}) }}">Sign up</a></li>
+        {% endif %}
+    </ul>
+</form>
+{% endblock %}
